@@ -26,6 +26,7 @@
     /* The PDF viewer frame. aspect-ratio keeps US-Letter proportions
        (8.5 x 11) so it scales without distortion on any width. */
     .pdf-frame {
+      display: block;            /* iframes are inline by default -> kills stray gap */
       width: 100%;
       aspect-ratio: 8.5 / 11;
       border: 1px solid var(--border);
@@ -33,11 +34,11 @@
       background: var(--bg-elev);
     }
 
-    /* Fallback shown only if the <object> can't render (rare / old mobile). */
-    .pdf-fallback {
-      padding: 2rem;
+    .pdf-note {
+      margin-top: 1rem;
       text-align: center;
       color: var(--text-dim);
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -66,14 +67,16 @@
       <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener">Open in new tab</a>
     </div>
 
-    <!-- <object> embeds the PDF using the browser's native viewer. The inner
-         content is a fallback that only renders if embedding isn't supported. -->
-    <object class="pdf-frame" data="resume.pdf" type="application/pdf" aria-label="Resume PDF">
-      <div class="pdf-fallback">
-        <p>Your browser can't display embedded PDFs.</p>
-        <p><a class="btn btn--primary" href="resume.pdf" download>Download the PDF instead</a></p>
-      </div>
-    </object>
+    <!-- <iframe> renders the PDF inline via the browser's native viewer. It's
+         more reliable than <object> across browsers (esp. Safari). iframes
+         can't hold fallback children, so the note below covers cases where
+         inline PDF viewing isn't available (e.g. some mobile browsers). -->
+    <iframe class="pdf-frame" src="resume.pdf" title="Resume PDF" loading="lazy"></iframe>
+    <p class="pdf-note">
+      Can't see the resume above?
+      <a href="resume.pdf" download>Download the PDF</a> or
+      <a href="resume.pdf" target="_blank" rel="noopener">open it in a new tab</a>.
+    </p>
   </main>
 
   <footer class="site-footer">
