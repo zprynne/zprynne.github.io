@@ -5,3 +5,12 @@
 *.swp
 *~
 .vscode/
+
+# LaTeX build artifacts (we commit resume.pdf + main.tex, not these)
+resume-src/*.aux
+resume-src/*.fdb_latexmk
+resume-src/*.fls
+resume-src/*.log
+resume-src/*.out
+resume-src/*.synctex.gz
+resume-src/main.pdf

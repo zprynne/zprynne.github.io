@@ -1,0 +1,214 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Zach Prynne} \\ \vspace{1pt}
+    \small \href{https://github.com/zprynne}{\underline{github.com/zprynne}}
+    $|$
+    \href{https://www.linkedin.com/in/zprynne}{\underline{linkedin.com/in/zprynne}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Manitoba}{Winnipeg, MB}
+      {Bachelor of Science in Computer Science, Minor in Mathematics}{Jan. 2022 -- Present}
+    \resumeItemListStart
+        \resumeItem{\textbf{Coursework:} Data Structures, Algorithms, Computer Systems, Software Development, Programming Paradigms}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Explore Science Day Volunteer}{Nov. 2025}
+      {University of Manitoba}{Winnipeg, MB}
+      \resumeItemListStart
+        \resumeItem{Facilitated hands-on workshops for high school students using the BBC Micro-bit microcontrollers to introduce fundamental concepts of Embedded Systems and physical computing}
+        \resumeItem{Guided participants in interfacing software with hardware components, using onboard accelerometers, LED arrays, and sensors to build interactive, event-driven programs}
+        \resumeItem{Explored and implemented creative pedagogical methods to visualize programming logic, effectively engaging diverse groups in introductory STEM topics}
+      \resumeItemListEnd
+      
+% -----------Multiple Positions Heading-----------
+%    \resumeSubSubheading
+%     {Software Engineer I}{Oct 2014 - Sep 2016}
+%     \resumeItemListStart
+%        \resumeItem{Apache Beam}
+%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+%     \resumeItemListEnd
+%    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+    \resumeSubheading
+      {Keyholder}{Aug. 2023 -- Present}
+      {Buggy Bath}{Winnipeg, MB}
+      \resumeItemListStart
+        \resumeItem{Entrusted with facility keys to manage opening and closing procedures, including alarm system activation and secure handling of daily cash deposits}
+        \resumeItem{Supervised high-volume daily operations, ensuring equipment functionality and maintaining service quality for over 200 vehicles per shift}
+    \resumeItemListEnd
+
+    \resumeSubheading
+      {Courier}{Aug. 2019 -- Aug. 2023}
+      {FedEx Express}{Winnipeg, MB}
+      \resumeItemListStart
+        \resumeItem{Managed time-sensitive logistics for 80+ daily deliveries, consistently meeting strict deadlines through efficient route optimization and priority management}
+        \resumeItem{Utilized handheld scanning technology to maintain 100\% data accuracy for real-time package tracking}
+        \resumeItem{Resolved on-the-road logistical challenges and equipment troubleshooting, ensuring zero service interruptions}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Farm-Clicker} $|$ \emph{TypeScript, PGLite, Node, Git}}{Jan. 2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Developed a full-stack incremental game utilizing TypeScript}
+            \resumeItem{Architected the application using MVC to decouple game logic from the UI, improving maintainability and scalability}
+            \resumeItem{Constructed a multi-user authentication system using PGlite, implementing relational data to ensure unique game states and progress persistence between accounts}
+            \resumeItem{Built a dynamic web interface with HTML5 and CSS, utilizing DOM manipulation to provide real-time visual feedback on production rates and currency accumulation.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Library Management System} $|$ \emph{Java, Maven, Git}}{Sept. 2025 -- Dec. 2025}
+          \resumeItemListStart
+            \resumeItem{Developed a modular Library Management System in Java, utilizing SOLID and DRY principles}
+            \resumeItem{Designed a robust Domain Model to represent core model objects, ensuring clear separation of concerns and data integrity within the application}
+            \resumeItem{Mapped Flows of Interaction to handle multi-step processes such as book checkouts, membership validation, and overdue book processing}
+            \resumeItem{Implemented custom exception handling to manage invalid user inputs and edge cases, ensuring application stability during runtime}
+            \resumeItem{Streamlined the development process using Maven for dependency management and Git for version control}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Java, C/C++, SQL (PGLite), JavaScript, HTML/CSS, R, MIPS} \\
+     \textbf{Frameworks}{: Node.js, PGLite, JUnit, Maven} \\
+     \textbf{Developer Tools}{: Git, VS Code, Visual Studio, IntelliJ, NeoVim} \\
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}
