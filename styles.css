@@ -40,7 +40,19 @@
    ========================================================================= */
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; background: var(--bg); }
+
+/* Matrix rain canvas: a fixed, full-viewport backdrop pinned BEHIND all content
+   (z-index:-1) and click-through (pointer-events:none) so it never interferes
+   with the page. It stays put while you scroll. */
+#matrix-rain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
 
 /* Respect users who ask the OS to minimize motion (accessibility). */
 @media (prefers-reduced-motion: reduce) {
@@ -50,7 +62,9 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--bg);
+  /* Transparent so the #matrix-rain canvas shows through behind the content.
+     The base color lives on <html> as a pre-JS fallback. */
+  background: transparent;
   color: var(--text);
   font-family: var(--font-sans);
   line-height: 1.6;
