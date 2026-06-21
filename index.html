@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Title + description show up in browser tabs and Google search results -->
+  <title>Zach Prynne — CS Student & Developer</title>
+  <meta name="description" content="Personal site of Zach Prynne, a computer science student. Projects, resume, and contact." />
+
+  <!-- Open Graph tags control how the link looks when shared (Twitter, Discord, etc.) -->
+  <meta property="og:title" content="Zach Prynne — CS Student & Developer" />
+  <meta property="og:description" content="Projects, resume, and contact." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Skip link: accessibility best-practice so keyboard users can jump past the nav -->
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="#top" class="nav__brand">zp<span class="nav__cursor">_</span></a>
+      <ul class="nav__links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+      </ul>
+      <!-- aria-pressed is updated by JS to tell screen readers the toggle state -->
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">
+        <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO / ABOUT -->
+    <section id="about" class="hero" aria-labelledby="hero-heading">
+      <div class="hero__inner">
+        <p class="hero__eyebrow">Hi, my name is</p>
+        <h1 id="hero-heading" class="hero__name">Zach Prynne.</h1>
+        <h2 class="hero__tagline">I build things and study computer science.</h2>
+        <p class="hero__bio">
+          I'm a third-year CS student interested in
+          <span class="accent">systems</span>, <span class="accent">algorithms</span>, and
+          building software that's clean enough to teach from. This site is a home for my
+          projects and resume. <!-- Edit this bio to match your interests -->
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#projects">See my work</a>
+          <a class="btn btn--ghost" href="mailto:zachpryn@gmail.com">Get in touch</a>
+        </div>
+        <ul class="socials" aria-label="Social links">
+          <!-- TODO: replace zprynne with your GitHub username -->
+          <li><a href="https://github.com/zprynne" rel="me noopener" target="_blank">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/zprynne" rel="me noopener" target="_blank">LinkedIn</a></li>
+          <li><a href="mailto:zachpryn@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="projects" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" class="section-title"><span class="section-title__num">01.</span> Projects</h2>
+      <div class="project-grid">
+
+        <!-- Duplicate an <article> block to add a project. Keep the structure for consistent styling. -->
+        <article class="card">
+          <header class="card__head">
+            <span class="card__folder" aria-hidden="true">&lt;/&gt;</span>
+            <div class="card__links">
+              <a href="https://github.com/zprynne/project-one" aria-label="Source code" target="_blank" rel="noopener">code</a>
+              <a href="#" aria-label="Live demo">demo</a>
+            </div>
+          </header>
+          <h3 class="card__title">Project One</h3>
+          <p class="card__desc">
+            One or two sentences on what it does and what problem it solves. Lead with impact,
+            then the interesting technical bit.
+          </p>
+          <ul class="card__tags" aria-label="Technologies used">
+            <li>Python</li>
+            <li>FastAPI</li>
+            <li>Postgres</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <header class="card__head">
+            <span class="card__folder" aria-hidden="true">&lt;/&gt;</span>
+            <div class="card__links">
+              <a href="https://github.com/zprynne/project-two" aria-label="Source code" target="_blank" rel="noopener">code</a>
+            </div>
+          </header>
+          <h3 class="card__title">Project Two</h3>
+          <p class="card__desc">
+            A short, punchy description. Mention an algorithm or design choice you're proud of —
+            it signals depth to anyone reading.
+          </p>
+          <ul class="card__tags" aria-label="Technologies used">
+            <li>C++</li>
+            <li>CMake</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <header class="card__head">
+            <span class="card__folder" aria-hidden="true">&lt;/&gt;</span>
+            <div class="card__links">
+              <a href="https://github.com/zprynne/project-three" aria-label="Source code" target="_blank" rel="noopener">code</a>
+            </div>
+          </header>
+          <h3 class="card__title">Project Three</h3>
+          <p class="card__desc">
+            Replace these three placeholder cards with your real projects. Even small ones count
+            if you can explain the tradeoffs you made.
+          </p>
+          <ul class="card__tags" aria-label="Technologies used">
+            <li>TypeScript</li>
+            <li>React</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      Built with plain HTML, CSS &amp; JS.
+      <a href="https://github.com/zprynne/zprynne.github.io" target="_blank" rel="noopener">Source</a>.
+    </p>
+    <p class="site-footer__meta">© <span id="year"></span> Zach Prynne</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

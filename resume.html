@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zach Prynne — Resume</title>
+  <meta name="description" content="Resume of Zach Prynne, computer science student." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Page-specific layout. Kept here (not in styles.css) because it only
+       applies to the resume. */
+    .resume {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 4rem;
+    }
+    .resume__name { font-size: 2.25rem; margin: 0; }
+    .resume__contact {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1rem;
+      margin: 0.5rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .resume h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.3rem;
+      margin: 2rem 0 1rem;
+    }
+    .entry { margin-bottom: 1.25rem; }
+    .entry__top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+    .entry__role { font-weight: 700; margin: 0; }
+    .entry__meta { color: var(--text-dim); font-family: var(--font-mono); font-size: 0.85rem; }
+    .entry ul { margin: 0.4rem 0 0; padding-left: 1.2rem; color: var(--text-dim); }
+    .entry ul li { margin-bottom: 0.25rem; }
+    .skills { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1.5rem; }
+    .skills dt { font-weight: 700; }
+    .skills dd { margin: 0; color: var(--text-dim); }
+    .toolbar {
+      max-width: 760px;
+      margin: 1.5rem auto 0;
+      padding: 0 1.25rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    /* PRINT STYLESHEET ---------------------------------------------------
+       @media print rules apply only when the page is printed / "Save as PDF".
+       We force a clean black-on-white layout, hide the nav + buttons, and
+       expand links. This is why you don't need a separate PDF file. */
+    @media print {
+      :root {
+        --bg: #fff; --bg-elev: #fff; --text: #000;
+        --text-dim: #333; --accent: #000; --border: #999;
+      }
+      .site-header, .toolbar, .skip-link { display: none !important; }
+      body { font-size: 11pt; }
+      .resume { padding: 0; max-width: none; }
+      a { color: #000; text-decoration: none; }
+      @page { margin: 1.5cm; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="nav__brand">zp<span class="nav__cursor">_</span></a>
+      <ul class="nav__links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="resume.html" class="is-active">Resume</a></li>
+      </ul>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">
+        <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- These buttons are hidden when printing (see @media print above). -->
+  <div class="toolbar">
+    <button class="btn btn--primary" onclick="window.print()">Download as PDF</button>
+    <a class="btn btn--ghost" href="index.html">← Back to site</a>
+  </div>
+
+  <main id="main" class="resume">
+    <header>
+      <h1 class="resume__name">Zach Prynne</h1>
+      <ul class="resume__contact">
+        <li>zachpryn@gmail.com</li>
+        <!-- TODO: replace zprynne -->
+        <li>github.com/zprynne</li>
+        <li>linkedin.com/in/zprynne</li>
+        <li>City, Country</li>
+      </ul>
+    </header>
+
+    <section>
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry__top">
+          <p class="entry__role">B.S. Computer Science — Your University</p>
+          <span class="entry__meta">Expected 2027</span>
+        </div>
+        <ul>
+          <li>Relevant coursework: Data Structures, Algorithms, Operating Systems, Databases.</li>
+          <li>GPA / honors / scholarships (optional — remove if not applicable).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <div class="entry">
+        <div class="entry__top">
+          <p class="entry__role">Role / Title — Company or Lab</p>
+          <span class="entry__meta">Mon 20XX – Present</span>
+        </div>
+        <ul>
+          <li>Start each bullet with an action verb; quantify impact (e.g. "cut X by 30%").</li>
+          <li>Focus on what YOU did and the result, not team responsibilities.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="entry">
+        <div class="entry__top">
+          <p class="entry__role">Project Name</p>
+          <span class="entry__meta">Python, FastAPI</span>
+        </div>
+        <ul>
+          <li>One-line description plus the most technically interesting decision.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>Languages</dt><dd>Python, Java, C++, JavaScript/TypeScript, SQL</dd>
+        <dt>Tools</dt><dd>Git, Linux, Docker, ...</dd>
+        <dt>Concepts</dt><dd>Data structures, algorithms, OOP, ...</dd>
+      </dl>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
