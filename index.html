@@ -68,60 +68,78 @@
       <h2 id="projects-heading" class="section-title"><span class="section-title__num">01.</span> Projects</h2>
       <div class="project-grid">
 
-        <!-- Duplicate an <article> block to add a project. Keep the structure for consistent styling. -->
+        <!-- Duplicate an <article> block to add a project. Keep the structure for consistent styling.
+             card__desc uses a <pre> so the ASCII art keeps its exact spacing and column alignment. -->
         <article class="card">
           <header class="card__head">
             <span class="card__folder" aria-hidden="true">&lt;/&gt;</span>
-            <div class="card__links">
-              <a href="https://github.com/zprynne/project-one" aria-label="Source code" target="_blank" rel="noopener">code</a>
-              <a href="#" aria-label="Live demo">demo</a>
-            </div>
+            <span class="card__dex">No. 025</span>
           </header>
-          <h3 class="card__title">Project One</h3>
-          <p class="card__desc">
-            One or two sentences on what it does and what problem it solves. Lead with impact,
-            then the interesting technical bit.
-          </p>
-          <ul class="card__tags" aria-label="Technologies used">
-            <li>Python</li>
-            <li>FastAPI</li>
-            <li>Postgres</li>
+          <h3 class="card__title">Pikachu</h3>
+          <pre class="card__ascii" role="img" aria-label="ASCII art of Pikachu">
+        ,   ,
+       /|   |\
+      / |   | \
+     /  |___|  \
+    |   o   o   |
+    |     &gt;     |
+    |   \___/   |
+     \  PIKA!  /
+      \   ⚡   /
+       |_____|
+      _|     |_
+     (___) (___)</pre>
+          <ul class="card__tags" aria-label="Type">
+            <li>Electric</li>
+            <li>Mouse</li>
           </ul>
         </article>
 
         <article class="card">
           <header class="card__head">
             <span class="card__folder" aria-hidden="true">&lt;/&gt;</span>
-            <div class="card__links">
-              <a href="https://github.com/zprynne/project-two" aria-label="Source code" target="_blank" rel="noopener">code</a>
-            </div>
+            <span class="card__dex">No. 004</span>
           </header>
-          <h3 class="card__title">Project Two</h3>
-          <p class="card__desc">
-            A short, punchy description. Mention an algorithm or design choice you're proud of —
-            it signals depth to anyone reading.
-          </p>
-          <ul class="card__tags" aria-label="Technologies used">
-            <li>C++</li>
-            <li>CMake</li>
+          <h3 class="card__title">Charmander</h3>
+          <pre class="card__ascii" role="img" aria-label="ASCII art of Charmander">
+         .---.
+        / o o \
+        \  &gt;  /
+       __'---'__    (
+      /         \    )  🔥
+     |  CHAR-    |  (
+     |  MANDER   |   )
+      \_________/   /
+      _|       |_  /
+     (___)   (___)</pre>
+          <ul class="card__tags" aria-label="Type">
+            <li>Fire</li>
+            <li>Lizard</li>
           </ul>
         </article>
 
         <article class="card">
           <header class="card__head">
             <span class="card__folder" aria-hidden="true">&lt;/&gt;</span>
-            <div class="card__links">
-              <a href="https://github.com/zprynne/project-three" aria-label="Source code" target="_blank" rel="noopener">code</a>
-            </div>
+            <span class="card__dex">Catch 'em all</span>
           </header>
-          <h3 class="card__title">Project Three</h3>
-          <p class="card__desc">
-            Replace these three placeholder cards with your real projects. Even small ones count
-            if you can explain the tradeoffs you made.
-          </p>
-          <ul class="card__tags" aria-label="Technologies used">
-            <li>TypeScript</li>
-            <li>React</li>
+          <h3 class="card__title">Poké Ball</h3>
+          <pre class="card__ascii" role="img" aria-label="ASCII art of a Poke Ball">
+       .-"""""-.
+     .'  _   _  '.
+    / .'       '. \
+   / /           \ \
+  |--------+--------|
+  |       /=\       |
+  |------( O )------|
+  |       \=/       |
+   \ \           / /
+    \ '.       .' /
+     '.  '---'  .'
+       '-.....-'</pre>
+          <ul class="card__tags" aria-label="Type">
+            <li>Item</li>
+            <li>Gotta catch 'em all</li>
           </ul>
         </article>
 

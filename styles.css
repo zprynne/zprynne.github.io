@@ -266,8 +266,25 @@ h1, h2, h3 { line-height: 1.15; }
 .card__links { display: flex; gap: 1rem; font-family: var(--font-mono); font-size: 0.85rem; }
 .card__links a { color: var(--text-dim); }
 .card__links a:hover { color: var(--accent); }
+.card__dex { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-dim); }
 .card__title { margin: 0 0 0.5rem; font-size: 1.25rem; }
 .card__desc { color: var(--text-dim); margin: 0 0 1.25rem; flex-grow: 1; }
+
+/* ASCII art panel. white-space: pre keeps every space/newline verbatim — without
+   it the browser collapses runs of spaces and the art shears apart. The monospace
+   font guarantees a fixed character grid so columns line up. overflow-x: auto is a
+   safety net on very narrow screens; the art never breaks the card layout. */
+.card__ascii {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 0.7rem;
+  line-height: 1.2;
+  margin: 0 0 1.25rem;
+  flex-grow: 1;
+  white-space: pre;
+  overflow-x: auto;
+  text-shadow: 0 0 6px color-mix(in srgb, var(--accent) 35%, transparent);
+}
 .card__tags {
   list-style: none;
   display: flex;
