@@ -14,6 +14,20 @@
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Set the theme BEFORE first paint. script.js is deferred, so if it did this,
+       light-theme users would see a dark flash first (a FOUC — flash of unstyled
+       content). An inline script in <head> is render-blocking, which is exactly
+       what we want here: it's tiny and runs before anything is drawn. -->
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("preferred-theme") ||
+          (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) { /* localStorage can throw in private browsing — fall back to CSS default */ }
+    })();
+  </script>
 </head>
 <body>
   <!-- Matrix digital-rain backdrop. Decorative only (aria-hidden), drawn by matrix.js. -->
@@ -69,18 +83,18 @@
       <div class="project-grid">
 
         <!-- Duplicate an <article> block to add a project. Keep the structure for consistent styling.
-             card__desc uses a <pre> so the ASCII art keeps its exact spacing and column alignment. -->
+             The art is a pixel sprite: an empty <canvas> tagged with data-sprite, drawn by
+             pixel-art.js. role="img" + aria-label on the wrapper describe it to screen readers,
+             since a canvas has no text content of its own. -->
         <article class="card">
           <header class="card__head">
             <span class="card__folder" aria-hidden="true">&lt;/&gt;</span>
             <span class="card__dex">meow</span>
           </header>
           <h3 class="card__title">Cat</h3>
-          <pre class="card__ascii" role="img" aria-label="ASCII art of a sleeping cat">
-       |\      _,,,---,,_
- ZZZzz /,`.-'`'    -.  ;-;;,_
-      |,4-  ) )-,_. ,\ (  `'-'
-     '---''(_/--'  `-'\_)</pre>
+          <div class="card__pixel" role="img" aria-label="Pixel art of a sleeping cat">
+            <canvas data-sprite="cat" aria-hidden="true"></canvas>
+          </div>
           <ul class="card__tags" aria-label="Tags">
             <li>Sleeping</li>
             <li>Mode</li>
@@ -93,12 +107,9 @@
             <span class="card__dex">woof</span>
           </header>
           <h3 class="card__title">Dog</h3>
-          <pre class="card__ascii" role="img" aria-label="ASCII art of a dog">
-      / \__
-     (    @\___
-     /         O
-    /   (_____/
-   /_____/   U</pre>
+          <div class="card__pixel" role="img" aria-label="Pixel art of a dog with its tongue out">
+            <canvas data-sprite="dog" aria-hidden="true"></canvas>
+          </div>
           <ul class="card__tags" aria-label="Tags">
             <li>Good</li>
             <li>Boy</li>
@@ -111,14 +122,9 @@
             <span class="card__dex">Linux</span>
           </header>
           <h3 class="card__title">Tux</h3>
-          <pre class="card__ascii" role="img" aria-label="ASCII art of Tux the penguin">
-       .--.
-      |o_o |
-      |:_/ |
-     //   \ \
-    (|     | )
-   /'\_   _/`\
-   \___)=(___/</pre>
+          <div class="card__pixel" role="img" aria-label="Pixel art of Tux the penguin">
+            <canvas data-sprite="tux" aria-hidden="true"></canvas>
+          </div>
           <ul class="card__tags" aria-label="Tags">
             <li>Penguin</li>
             <li>Mascot</li>
@@ -138,6 +144,7 @@
   </footer>
 
   <script src="matrix.js" defer></script>
+  <script src="pixel-art.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>

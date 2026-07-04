@@ -1,65 +1,26 @@
-# Personal Website
+# zprynne.github.io
 
-A fast, dependency-free personal site (about, projects, resume) built with plain
-HTML, CSS, and JavaScript — designed to deploy straight to **GitHub Pages** with
-no build step.
+My personal site. Plain HTML/CSS/JS, no build step. Hosted on GitHub Pages,
+which serves straight from `main` (`.nojekyll` skips Jekyll processing).
 
-## Structure
+Live at [zprynne.github.io](https://zprynne.github.io).
 
-| File | Purpose |
-|------|---------|
-| `index.html` | Home page: hero/about + projects gallery |
-| `resume.html` | Resume page; "Download as PDF" uses the browser's print-to-PDF (see the print stylesheet inside the file) |
-| `styles.css` | All styling; theme colors live in CSS variables at the top |
-| `script.js` | Progressive enhancement: theme toggle, scroll-spy nav, footer year |
-| `assets/` | Favicon and any images |
-| `.nojekyll` | Tells GitHub Pages to serve files as-is (skip Jekyll processing) |
+## Running locally
 
-## Before you publish — replace the placeholders
-
-Search the project for these and swap in your real values:
-
-- `zprynne` → your GitHub username (links + repo URL)
-- `Zach Prynne` → confirm spelling / preferred name
-- Bio text in `index.html`, the three placeholder project cards, and all the
-  `TODO` comments in `resume.html`
-
-## Run locally
-
-No tooling needed — just open `index.html` in a browser. For a closer match to
-how it'll serve (so relative paths behave), run a tiny static server:
+Open `index.html` directly, or serve it so relative paths behave like production:
 
 ```bash
 python3 -m http.server 8000
-# then visit http://localhost:8000
 ```
 
-## Deploy to GitHub Pages
+## What's what
 
-GitHub Pages serves a **user site** from a repo named exactly
-`zprynne.github.io`. It will be live at `https://zprynne.github.io`.
+- `index.html` — landing page: about, project cards
+- `resume.html` — renders `resume.pdf` inline with PDF.js (native PDF embeds don't work in Safari)
+- `resume-src/` — LaTeX source for the resume
+- `styles.css` — all styling; theme colors are CSS variables at the top
+- `script.js` — theme toggle, scroll-spy nav, footer year
+- `matrix.js` — the digital-rain canvas background
+- `pixel-art.js` — pixel sprites on the project cards, drawn from character maps
 
-```bash
-# from this folder
-git init
-git add .
-git commit -m "Initial personal site"
-
-# create the repo named zprynne.github.io (replace zprynne), then:
-git branch -M main
-git remote add origin https://github.com/zprynne/zprynne.github.io.git
-git push -u origin main
-```
-
-Then on GitHub: **Settings → Pages → Build and deployment → Source: Deploy from
-a branch → Branch: `main` / `root`**. Give it a minute and your site is live.
-
-> Tip: you can also use the GitHub CLI — `gh repo create zprynne.github.io --public --source=. --push`
-
-## Making it "unique" later
-
-Some directions that stay within plain HTML/CSS/JS:
-- An interactive `<canvas>` background (particles, a generative grid).
-- A fake terminal hero where visitors "type" commands to navigate.
-- View Transitions API for smooth page-to-page animation.
-- Render projects from a `projects.json` file with `fetch` (separates data from markup).
+The site works with JS disabled; the scripts only add extras.

@@ -7,6 +7,18 @@
   <meta name="description" content="Resume of Zach Prynne, computer science student." />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Set the theme before first paint so light-theme users don't see a dark
+       flash (same inline snippet as index.html — see the comment there). -->
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("preferred-theme") ||
+          (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) { /* fall back to CSS default */ }
+    })();
+  </script>
   <style>
     /* Page-specific layout for the embedded-PDF resume view. */
     .resume {

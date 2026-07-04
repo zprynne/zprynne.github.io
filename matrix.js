@@ -44,8 +44,16 @@
   // (Re)compute the grid on load and whenever the window resizes. `drops[i]` is
   // the current row index of column i's head; negative staggers their starts.
   function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
+    // On high-DPI ("retina") screens one CSS pixel maps to several device
+    // pixels. Sizing the backing store by devicePixelRatio and scaling the
+    // context to match keeps our drawing coordinates in CSS pixels while the
+    // glyphs render at full density — otherwise they'd come out blurry.
+    const dpr = window.devicePixelRatio || 1;
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     columns = Math.ceil(width / FONT_SIZE);
     drops = Array.from({ length: columns }, () => Math.floor(Math.random() * -50));
     ctx.font = FONT_SIZE + "px monospace";
@@ -102,7 +110,15 @@
   }
 
   resize();
-  window.addEventListener("resize", resize);
+
+  // Debounce: "resize" fires continuously while dragging the window edge, and
+  // resize() rebuilds the whole grid (restarting every stream). Waiting until
+  // events stop for 150ms means we rebuild once, at the final size.
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resize, 150);
+  });
 
   // Accessibility: honor "reduce motion". Leave the canvas blank if set, and
   // react live if the user flips the OS setting.
