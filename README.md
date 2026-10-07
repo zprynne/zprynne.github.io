@@ -10,17 +10,32 @@ Live at [zprynne.github.io](https://zprynne.github.io).
 Open `index.html` directly, or serve it so relative paths behave like production:
 
 ```bash
-python3 -m http.server 8000
+python3 -m http.server 8080
 ```
 
 ## What's what
 
-- `index.html` — landing page: about, project cards
+- `index.html` — the home page: about, projects, sidebar, footer buttons
 - `resume.html` — renders `resume.pdf` inline with PDF.js (native PDF embeds don't work in Safari)
 - `resume-src/` — LaTeX source for the resume
-- `styles.css` — all styling; theme colors are CSS variables at the top
-- `script.js` — theme toggle, scroll-spy nav, footer year
-- `matrix.js` — the digital-rain canvas background
-- `pixel-art.js` — pixel sprites on the project cards, drawn from character maps
+- `styles.css` — all styling; colors are CSS variables at the top
+- `fx.js` — visit counter, sparkle trail, and stopping the marquee for reduced motion
+- `assets/` — every image on the site (generated, see below)
+- `assets-src/make_assets.py` — draws the assets: title, pixel pals, starfield,
+  badges, dividers and 88x31 buttons
 
-The site works with JS disabled; the scripts only add extras.
+The look is a late-90s home page. The page works without JavaScript; `fx.js`
+only adds extras. The "Last updated" line in the footer is updated by hand.
+
+## Changing the images
+
+Sprites and badges are defined as data in `assets-src/make_assets.py` (character
+maps for pixel art, label text for buttons). Edit, then regenerate:
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install pillow
+.venv/bin/python assets-src/make_assets.py
+```
+
+It uses the macOS core web fonts in `/System/Library/Fonts/Supplemental`.
+Animated GIFs get a still `.png` twin for visitors with "reduce motion" on.

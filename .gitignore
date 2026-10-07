@@ -14,3 +14,6 @@ resume-src/*.log
 resume-src/*.out
 resume-src/*.synctex.gz
 resume-src/main.pdf
+
+# Python env for assets-src/make_assets.py
+.venv/
