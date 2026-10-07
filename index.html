@@ -29,8 +29,8 @@
       </h1>
       <p class="tagline">The personal web site of Zach Prynne, computer science student</p>
       <marquee class="ticker" scrollamount="4">
-        ★ Welcome to my home page! ★ New project: umPlan, a course planner for
-        University of Manitoba students ★ Thanks for stopping by ★
+        ★ Welcome to my home page! ★ New project: UMGuesser, GeoGuessr for the
+        U of M campus ★ Thanks for stopping by ★
       </marquee>
     </header>
 
@@ -68,14 +68,13 @@
         <section id="about">
           <h2>About me</h2>
           <p>
-            Hi, I'm Zach. I study computer science, with a minor in mathematics, at the
-            <a href="https://umanitoba.ca/">University of Manitoba</a> in Winnipeg. I'm
-            interested in systems and algorithms, and in writing software that's clean
-            enough to teach from.
+            I'm a computer science student at the
+            <a href="https://umanitoba.ca/">University of Manitoba</a> in Winnipeg, with a
+            minor in mathematics. I'm mostly interested in systems and algorithms.
           </p>
           <p>
-            This page has my projects and my <a href="resume.html">resume</a>. Email is the
-            best way to reach me.
+            Below are some projects I've worked on. You can also read my
+            <a href="resume.html">resume</a> or <a href="mailto:zachpryn@gmail.com">email me</a>.
           </p>
         </section>
 
@@ -88,7 +87,7 @@
                somewhere public to send people (a live site or a public repo). -->
           <article class="project">
             <h3>
-              umPlan
+              UMGuesser
               <picture>
                 <source srcset="assets/new.png" media="(prefers-reduced-motion: reduce)" />
                 <img class="new" src="assets/new.gif" alt="New!" width="34" height="15" />
@@ -96,30 +95,21 @@
             </h3>
             <p class="meta">TypeScript, 2026</p>
             <p>
+              GeoGuessr for spots around the University of Manitoba campus. You see a photo
+              or panorama, drop a pin on the campus map, and score up to 5,000 points based
+              on distance. Ranked games feed a leaderboard; the server picks locations,
+              enforces the timer and scores every guess so answers can't leak early.
+            </p>
+          </article>
+
+          <article class="project">
+            <h3>umPlan</h3>
+            <p class="meta">TypeScript, 2026</p>
+            <p>
               An unofficial course planner for University of Manitoba students. It scrapes
               the public Academic Calendar (3,522 courses and 216 programs), parses every
               prerequisite, and checks your plan as you drag courses into terms. You can
               keep several plans side by side and compare them.
-            </p>
-          </article>
-
-          <article class="project">
-            <h3><a href="https://github.com/zprynne/word2latex">word2latex</a></h3>
-            <p class="meta">Python, 2026</p>
-            <p>
-              Turns photos of handwritten notes into structured LaTeX, running entirely on
-              your own machine. It's built for theory and math notes: aligned derivations
-              come out as <code>align*</code> and boxed results as theorem environments.
-            </p>
-          </article>
-
-          <article class="project">
-            <h3>Farm-Clicker</h3>
-            <p class="meta">TypeScript, 2026</p>
-            <p>
-              An incremental clicker game for COMP 2452. Game logic is kept apart from the
-              UI with MVC, and accounts are stored in PGlite so each player's farm is still
-              there when they come back.
             </p>
           </article>
 
