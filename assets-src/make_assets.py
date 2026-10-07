@@ -166,14 +166,38 @@ def make_pals():
     blink = with_cells(TUX, [(5, 2), (6, 2), (9, 2), (10, 2), (5, 3), (6, 3), (9, 3), (10, 3)], "K")
     save_gif("tux", [sprite_image(r, TUX_PALETTE, 4) for r in (TUX, blink)], [2400, 160])
 
-    # Favicon: the sleeping cat (minus the headroom) as crisp SVG squares.
-    rects = []
-    for y, row in enumerate(cat[1][2:]):
-        for x, ch in enumerate(row):
-            if ch in CAT_PALETTE:
-                rects.append(f'<rect x="{x}" y="{y}" width="1" height="1" fill="{CAT_PALETTE[ch]}"/>')
+
+# ---------------------------------------------------------------------------
+# Favicon: "ZP" in the heading colors (yellow, magenta drop shadow) on navy,
+# written out as crisp SVG squares so it stays sharp at any tab size.
+# ---------------------------------------------------------------------------
+FAVICON_PALETTE = {"N": "#000080", "Y": "#ffff00", "S": "#cc00cc"}
+FAVICON = [
+    "NNNNNNNNNNNNNNNN",
+    "NNNNNNNNNNNNNNNN",
+    "NNNNNNNNNNNNNNNN",
+    "NYYYYYYNYYYYYNNN",
+    "NYYYYYYSYYYYYYNN",
+    "NNSSSYYSYYSSYYSN",
+    "NNNNYYSNYYSNYYSN",
+    "NNNYYSNNYYYYYYSN",
+    "NNYYSNNNYYYYYSSN",
+    "NYYSNNNNYYSSSSNN",
+    "NYYYYYYNYYSNNNNN",
+    "NYYYYYYSYYSNNNNN",
+    "NNSSSSSSNSSNNNNN",
+    "NNNNNNNNNNNNNNNN",
+    "NNNNNNNNNNNNNNNN",
+    "NNNNNNNNNNNNNNNN",
+]
+
+
+def make_favicon():
+    rects = [f'<rect x="{x}" y="{y}" width="1" height="1" fill="{FAVICON_PALETTE[ch]}"/>'
+             for y, row in enumerate(FAVICON) for x, ch in enumerate(row) if ch != "N"]
     (OUT / "favicon.svg").write_text(
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges">\n'
+        f'<rect width="16" height="16" fill="{FAVICON_PALETTE["N"]}"/>\n'
         + "\n".join(rects) + "\n</svg>\n")
 
 
@@ -503,6 +527,7 @@ def make_buttons():
 if __name__ == "__main__":
     OUT.mkdir(exist_ok=True)
     make_pals()
+    make_favicon()
     make_stars()
     make_title()
     make_new()

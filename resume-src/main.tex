@@ -116,6 +116,8 @@
     \small \href{https://github.com/zprynne}{\underline{github.com/zprynne}}
     $|$
     \href{https://www.linkedin.com/in/zach-prynne-zvp}{\underline{linkedin.com/in/zach-prynne-zvp}}
+    $|$
+    \href{mailto:zachvprynne@outlook.com}{\underline{zachvprynne@outlook.com}}
 \end{center}
 
 
@@ -136,12 +138,24 @@
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {Explore Science Day Volunteer}{Nov. 2025}
-      {University of Manitoba}{Winnipeg, MB}
+      {IDFusion Software}{Winnipeg, MB}
+      {Contract Developer (Part-time, Remote)}{Sept. 2026 -- Present}
       \resumeItemListStart
-        \resumeItem{Facilitated hands-on workshops for high school students using the BBC Micro-bit microcontrollers to introduce fundamental concepts of Embedded Systems and physical computing}
-        \resumeItem{Guided participants in interfacing software with hardware components, using onboard accelerometers, LED arrays, and sensors to build interactive, event-driven programs}
-        \resumeItem{Explored and implemented creative pedagogical methods to visualize programming logic, effectively engaging diverse groups in introductory STEM topics}
+        \resumeItem{Maintain and extend the operations dashboard from my internship: porting it from Vercel to the company's AWS hosting, moving admin management into the app, and merging in hours logged outside ConnectWise}
+      \resumeItemListEnd
+    \resumeSubSubheading
+      {AI Developer Intern}{May 2026 -- Aug. 2026}
+      \resumeItemListStart
+        \resumeItem{Built an operations dashboard over the ConnectWise PSA API (Next.js, TypeScript, Tailwind, Microsoft Entra ID sign-in) tracking delivery, utilization and billing for the CEO, COO and directors}
+        \resumeItem{Extended an open-source ConnectWise MCP server in TypeScript and deployed it company-wide on AWS ECS Fargate, adding Entra ID sign-in, per-user credentials, role-based access and audit logging}
+        \resumeItem{Ran RAG and LoRA fine-tuning experiments on open-weight LLMs (Qwen3-8B, MLX) against a held-out benchmark, showing that training data, not adapter capacity, was what limited fine-tuning}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {University of Manitoba}{Winnipeg, MB}
+      {Explore Science Day Volunteer}{Nov. 2025}
+      \resumeItemListStart
+        \resumeItem{Ran BBC micro:bit workshops teaching high school students embedded systems and event-driven programming}
       \resumeItemListEnd
       
 % -----------Multiple Positions Heading-----------
@@ -155,21 +169,11 @@
 %-------------------------------------------
 
     \resumeSubheading
-      {Keyholder}{Aug. 2023 -- Present}
       {Buggy Bath}{Winnipeg, MB}
+      {Keyholder}{Aug. 2023 -- Present}
       \resumeItemListStart
-        \resumeItem{Entrusted with facility keys to manage opening and closing procedures, including alarm system activation and secure handling of daily cash deposits}
-        \resumeItem{Supervised high-volume daily operations, ensuring equipment functionality and maintaining service quality for over 200 vehicles per shift}
+        \resumeItem{Trusted with opening, closing, alarm and cash deposits while supervising operations for 200+ vehicles per shift}
     \resumeItemListEnd
-
-    \resumeSubheading
-      {Courier}{Aug. 2019 -- Aug. 2023}
-      {FedEx Express}{Winnipeg, MB}
-      \resumeItemListStart
-        \resumeItem{Managed time-sensitive logistics for 80+ daily deliveries, consistently meeting strict deadlines through efficient route optimization and priority management}
-        \resumeItem{Utilized handheld scanning technology to maintain 100\% data accuracy for real-time package tracking}
-        \resumeItem{Resolved on-the-road logistical challenges and equipment troubleshooting, ensuring zero service interruptions}
-      \resumeItemListEnd
 
   \resumeSubHeadingListEnd
 
@@ -178,21 +182,23 @@
 \section{Projects}
     \resumeSubHeadingListStart
       \resumeProjectHeading
-          {\textbf{Farm-Clicker} $|$ \emph{TypeScript, PGLite, Node, Git}}{Jan. 2026 -- Present}
+          {\textbf{umPlan} $|$ \emph{TypeScript, Next.js, React, Vitest}}{Sept. 2026 -- Present}
           \resumeItemListStart
-            \resumeItem{Developed a full-stack incremental game utilizing TypeScript}
-            \resumeItem{Architected the application using MVC to decouple game logic from the UI, improving maintainability and scalability}
-            \resumeItem{Constructed a multi-user authentication system using PGlite, implementing relational data to ensure unique game states and progress persistence between accounts}
-            \resumeItem{Built a dynamic web interface with HTML5 and CSS, utilizing DOM manipulation to provide real-time visual feedback on production rates and currency accumulation.}
+            \resumeItem{Built a course planner for University of Manitoba students by scraping the public Academic Calendar into 3,522 courses and 216 degree programs}
+            \resumeItem{Wrote a prerequisite parser (3,209 of 3,522 parsed automatically) and a validation engine that checks prerequisites, corequisites, exclusions and degree requirements live as students drag courses into terms}
           \resumeItemListEnd
       \resumeProjectHeading
-          {\textbf{Library Management System} $|$ \emph{Java, Maven, Git}}{Sept. 2025 -- Dec. 2025}
+          {\textbf{OpenLearn} $|$ \emph{Python, ChromaDB, MLX, SQLite, JavaScript}}{Sept. 2026 -- Present}
           \resumeItemListStart
-            \resumeItem{Developed a modular Library Management System in Java, utilizing SOLID and DRY principles}
-            \resumeItem{Designed a robust Domain Model to represent core model objects, ensuring clear separation of concerns and data integrity within the application}
-            \resumeItem{Mapped Flows of Interaction to handle multi-step processes such as book checkouts, membership validation, and overdue book processing}
-            \resumeItem{Implemented custom exception handling to manage invalid user inputs and edge cases, ensuring application stability during runtime}
-            \resumeItem{Streamlined the development process using Maven for dependency management and Git for version control}
+            \resumeItem{Built a study assistant that answers questions from uploaded course materials with RAG (local embeddings, Chroma vector store) on a local LLM, with optional Claude or OpenAI fallback}
+            \resumeItem{Generates Anki flashcards from course content and charts review history via AnkiConnect}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Farm-Clicker} $|$ \emph{TypeScript, PGLite, Node, Git}}{Jan. 2026 -- Apr. 2026}
+          \resumeItemListStart
+            \resumeItem{Developed a full-stack incremental game in TypeScript, using MVC to keep game logic separate from the UI}
+            \resumeItem{Built multi-user accounts on PGlite so each player's progress persists between sessions}
+            \resumeItem{Wrote the interface in HTML5 and CSS, updating the DOM in real time to show production rates and currency}
           \resumeItemListEnd
     \resumeSubHeadingListEnd
 
@@ -203,9 +209,10 @@
 \section{Technical Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Languages}{: Java, C/C++, SQL (PGLite), JavaScript, HTML/CSS, R, MIPS} \\
-     \textbf{Frameworks}{: Node.js, PGLite, JUnit, Maven} \\
-     \textbf{Developer Tools}{: Git, VS Code, Visual Studio, IntelliJ, NeoVim} \\
+     \textbf{Languages}{: TypeScript, JavaScript, Python, Java, C/C++, SQL, HTML/CSS, R, MIPS} \\
+     \textbf{Frameworks}{: Next.js, React, Node.js, Tailwind CSS, JUnit, Maven} \\
+     \textbf{AI/ML}{: RAG, LoRA fine-tuning, MCP, MLX, ChromaDB, sentence-transformers} \\
+     \textbf{Cloud \& Tools}{: AWS (ECS Fargate), Vercel, Docker, Git, Vitest, SQLite, PostgreSQL, Microsoft Entra ID} \\
     }}
  \end{itemize}
 
