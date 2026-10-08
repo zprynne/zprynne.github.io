@@ -347,6 +347,93 @@ hr.bits {
 }
 
 /* =========================================================================
+   1996 MODE (retro.js, unlocked with the Konami code). Swapping the color
+   tokens does most of the work; the rest is Comic Sans, a loud tiled
+   background, rainbow headings that blink, and rainbow dividers.
+   ========================================================================= */
+html.y1996 {
+  --panel:   #ffffcc;
+  --card:    #ffffff;
+  --side:    #008080;
+  --text:    #000000;
+  --dim:     #333333;
+  --name:    #0000cc;
+  --link:    #0000ee;
+  --visited: #551a8b;
+  --hover:   #ff0000;
+
+  color-scheme: light;
+  background: repeating-conic-gradient(#ff66cc 0 25%, #66ccff 0 50%) 0 0 / 40px 40px;
+}
+html.y1996 body {
+  font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", cursive;
+}
+/* Keep the starfield behind the title so it stays readable. */
+html.y1996 .banner { background: #000 url(assets/stars.gif); }
+html.y1996 .sidebar { color: #fff; }
+html.y1996 .sidebar a:link,
+html.y1996 .sidebar a:visited { color: #ffff00; }
+html.y1996 main h2 {
+  font-family: inherit;
+  background: linear-gradient(90deg, #e60000, #ff6600, #00a300, #0055ff, #9900cc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+  animation: blink 1.2s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0.15; } }
+html.y1996 hr.bits {
+  height: 6px;
+  background: linear-gradient(90deg, #ff0000, #ff9900, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+}
+html.y1996 .project { border-style: outset; }
+html.y1996 .ticker { background: #000080; color: #ffff00; }
+
+/* Pop-up messages ("CHEAT ACTIVATED", the achievement), Win95 gray. */
+.toast {
+  position: fixed;
+  z-index: 20;
+  top: 16px;
+  left: 50%;
+  max-width: calc(100vw - 32px);
+  padding: 8px 14px;
+  transform: translateX(-50%);
+  background: var(--chrome);
+  border: 2px outset #fff;
+  box-shadow: 3px 3px 0 #000;
+  color: #000;
+  font: 13px/1.4 Verdana, Geneva, sans-serif;
+  text-align: center;
+  transition: opacity 400ms;
+}
+.toast strong { color: #000080; font-size: 14px; }
+.toast-achievement strong { color: #806000; }
+.toast-out { opacity: 0; }
+
+.back-2026 {
+  position: fixed;
+  z-index: 20;
+  right: 16px;
+  bottom: 16px;
+  padding: 6px 14px;
+  background: var(--chrome);
+  border: 2px outset #fff;
+  box-shadow: 2px 2px 0 #000;
+  color: #000;
+  font: bold 13px Verdana, Geneva, sans-serif;
+  cursor: pointer;
+}
+.back-2026:active { border-style: inset; }
+
+.confetti {
+  position: fixed;
+  z-index: 30;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* =========================================================================
    SMALL SCREENS: sidebar folds above the content.
    ========================================================================= */
 @media (max-width: 640px) {
@@ -374,4 +461,5 @@ hr.bits {
   hr.bits { background-image: url(assets/bits.png); }
   .amp.is-playing .amp-title span { padding-left: 0; animation: none; }
   .amp-title { text-overflow: ellipsis; }
+  html.y1996 main h2 { animation: none; }
 }

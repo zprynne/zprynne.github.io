@@ -129,6 +129,55 @@
       bass: "1 - 5 - 8 -",
       drums: "k . h . h .",
     },
+    // Bonus tracks: hidden until the Konami code unlocks them (retro.js
+    // sends a "zamp:unlock" event). Once unlocked they stay unlocked in
+    // that browser.
+    {
+      title: "Dial Tone Disco",
+      secret: true,
+      bpm: 128,
+      loops: 4,
+      chords: ["F", "Dm", "A#", "C", "F", "Dm", "A#", "C"],
+      lead: [
+        "C5 F5 A5 F5 C6 - A5 -", "D5 F5 A5 F5 D6 - A5 -",
+        "D5 F5 A#5 - D6 - C6 A#5", "C6 - G5 - E5 - C5 -",
+        "A5 - C6 - F6 - - -", "F6 E6 D6 C6 A5 - F5 -",
+        "G5 - A#5 - D6 - F6 -", "E6 - - D6 C6 - - -",
+      ],
+      bass: OCTAVE_BASS,
+      drums: "k h s h k h s h",
+    },
+    {
+      title: "Guestbook Groove",
+      secret: true,
+      bpm: 100,
+      loops: 4,
+      swing: 0.25,
+      chords: ["G", "Em", "C", "D", "G", "Em", "C", "D"],
+      lead: [
+        "B4 - D5 - G5 - . F#5", "E5 - G5 - B5 - A5 G5",
+        "E5 - - C5 E5 G5 - E5", "F#5 - A5 - D5 - - -",
+        "G5 A5 B5 - D6 - B5 -", "G5 - E5 - B4 - E5 G5",
+        "A5 G5 E5 - C5 - E5 -", "D5 - F#5 - A5 - G5 -",
+      ],
+      bass: "1 3 5 6 8 6 5 3",
+      drums: "k h s h k h s h",
+    },
+    {
+      title: "Under Construction",
+      secret: true,
+      bpm: 170,
+      loops: 6,
+      chords: ["C", "G", "Am", "F", "C", "G", "Am", "F"],
+      lead: [
+        "C5 C5 G5 - C5 C5 A5 -", "B4 B4 G5 - B4 B4 D5 -",
+        "A4 C5 E5 A5 - E5 C5 -", "F5 - E5 - D5 - C5 -",
+        "E5 G5 C6 - E5 G5 D6 -", "D6 C6 B5 G5 D5 - - -",
+        "C6 B5 A5 E5 C5 E5 A5 -", "F5 A5 C6 - G5 - . .",
+      ],
+      bass: "1 5 8 5 1 5 8 5",
+      drums: "k h s h k k s h",
+    },
   ];
 
   const SEMITONE = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
@@ -252,6 +301,17 @@
   // Background tabs only get a timer tick about once a second, so queue
   // further ahead while the page is hidden.
   let current = 0, playing = false, timer = null;
+
+  // Bonus tracks count only once unlocked; skipping and auto-advance move
+  // through the tracks that are showing.
+  let unlocked = false;
+  try { unlocked = localStorage.getItem("zamp-bonus") === "1"; } catch (e) { /* stay locked */ }
+  const available = () => SONGS.map((s, i) => i).filter((i) => unlocked || !SONGS[i].secret);
+  function neighbour(from, by) {
+    const list = available();
+    const at = Math.max(0, list.indexOf(from));
+    return list[(at + by + list.length) % list.length];
+  }
   let step = 0, nextTime = 0, trackStart = 0;
 
   function schedule() {
@@ -268,7 +328,7 @@
       const total = song.steps.length * song.loops;
       if (step >= total) {
         // End of the track: roll straight into the next one.
-        current = (current + 1) % SONGS.length;
+        current = neighbour(current, 1);
         startTrack(nextTime);
         return;
       }
@@ -332,7 +392,7 @@
   }
 
   function skip(by) {
-    current = (current + by + SONGS.length) % SONGS.length;
+    current = neighbour(current, by);
     if (playing) startTrack(ctx.currentTime + 0.05);
     else { stop(); showTrack(); }
   }
@@ -370,7 +430,14 @@
       else { stop(); play(); }
     });
     li.appendChild(b);
+    li.hidden = song.secret && !unlocked;
     list.appendChild(li);
+  });
+
+  document.addEventListener("zamp:unlock", () => {
+    unlocked = true;
+    try { localStorage.setItem("zamp-bonus", "1"); } catch (e) { /* this visit only */ }
+    list.querySelectorAll("li").forEach((li) => { li.hidden = false; });
   });
 
   // Spectrum bars, Winamp colors: green at the bottom, through yellow, to

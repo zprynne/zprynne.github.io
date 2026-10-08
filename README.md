@@ -22,6 +22,7 @@ python3 -m http.server 8080
 - `fx.js` — visit counter, sparkle trail, and stopping the marquee for reduced motion
 - `amp.js` — ZAMP, the Winamp-style player; the tunes are note lists synthesized with Web Audio
 - `pals.js` — the footer pals (parked, see below)
+- `retro.js` — the secret: the Konami code turns on 1996 mode and unlocks bonus ZAMP tracks
 - `assets/` — every image on the site (generated, see below)
 - `assets-src/make_assets.py` — draws the assets: title, pixel pals, starfield,
   badges, dividers and 88x31 buttons
