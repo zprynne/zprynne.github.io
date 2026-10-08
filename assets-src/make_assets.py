@@ -166,6 +166,36 @@ def make_pals():
     blink = with_cells(TUX, [(5, 2), (6, 2), (9, 2), (10, 2), (5, 3), (6, 3), (9, 3), (10, 3)], "K")
     save_gif("tux", [sprite_image(r, TUX_PALETTE, 4) for r in (TUX, blink)], [2400, 160])
 
+    # Cat, awake: shown while it wanders the footer (pals.js) and when petted.
+    # Same canvas as the sleeping cat, so swapping images doesn't shift it.
+    awake = with_cells(CAT_BODY, [(4, 11), (5, 11), (10, 11), (11, 11)], "K")
+    sprite_image(awake, CAT_PALETTE, 4).save(OUT / "cat-awake.png")
+
+
+# ---------------------------------------------------------------------------
+# Footer yard: a heart that pops up when a pal is petted, and a grass strip
+# for the pals to walk on (tiles across the bottom of the footer).
+# ---------------------------------------------------------------------------
+HEART = [
+    ".RR.RR.",
+    "RRRRRRR",
+    "RRWRRRR",
+    ".RRRRR.",
+    "..RRR..",
+    "...R...",
+]
+GRASS = [
+    "..L...L.",
+    ".LG.L.GL",
+    "GGGGGGGG",
+    "DGDDGDDG",
+]
+
+
+def make_yard():
+    sprite_image(HEART, {"R": "#ff3366", "W": "#ffffff"}, 3).save(OUT / "heart.png")
+    sprite_image(GRASS, {"L": "#66ff66", "G": "#22aa22", "D": "#116611"}, 4).save(OUT / "grass.png")
+
 
 # ---------------------------------------------------------------------------
 # Favicon: "ZP" in the heading colors (yellow, magenta drop shadow) on navy,
@@ -528,6 +558,7 @@ if __name__ == "__main__":
     OUT.mkdir(exist_ok=True)
     make_pals()
     make_favicon()
+    make_yard()
     make_stars()
     make_title()
     make_new()

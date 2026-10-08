@@ -20,6 +20,8 @@ python3 -m http.server 8080
 - `resume-src/` — LaTeX source for the resume
 - `styles.css` — all styling; colors are CSS variables at the top
 - `fx.js` — visit counter, sparkle trail, and stopping the marquee for reduced motion
+- `amp.js` — ZAMP, the Winamp-style player; the tunes are note lists synthesized with Web Audio
+- `pals.js` — the cat, dog and Tux wandering the footer; click one to pet it
 - `assets/` — every image on the site (generated, see below)
 - `assets-src/make_assets.py` — draws the assets: title, pixel pals, starfield,
   badges, dividers and 88x31 buttons
