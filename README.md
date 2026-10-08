@@ -41,3 +41,10 @@ python3 -m venv .venv && .venv/bin/pip install pillow
 
 It uses the macOS core web fonts in `/System/Library/Fonts/Supplemental`.
 Animated GIFs get a still `.png` twin for visitors with "reduce motion" on.
+
+## Caching
+
+GitHub Pages lets browsers cache files for 10 minutes, and browsers often keep
+them longer. `styles.css`, the scripts and the favicon are linked with a
+`?v=N` suffix: bump N in `index.html` and `resume.html` whenever one of them
+changes, so returning visitors get the new file straight away.
