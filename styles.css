@@ -140,7 +140,12 @@ code { font: 14px "Courier New", Courier, monospace; color: var(--name); }
   margin: 3px 0;
   image-rendering: pixelated;
 }
+/* width: 0 keeps the long, padded marquee line from counting toward the
+   player's size (Safari otherwise widens the whole page on play);
+   min-width: 100% then stretches it back to fill the screen. */
 .amp-title {
+  width: 0;
+  min-width: 100%;
   overflow: hidden;
   white-space: nowrap;
 }
